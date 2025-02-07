@@ -2,9 +2,9 @@
 
 This repository demonstrates how to harness large language models (LLMs) to perform structured classifications on input to the LLM. With this setup, you can easily customize the classification schema to match your specific requirements.
 
-In this demo, the main workflow involves sending an incident report (formatted according in `app/schemas/incident_schema.py`) to the LLM. The LLM processes the input and returns a structured classification based on the schema defined in `app/schemas/classification_schema.py`. Note that the project employs a few-shot prompting technique (see `app/schemas/examples/classification_schema.py`) to guide the LLM in generating accurate responses.
+In this demo, the main workflow involves sending an incident report (formatted in `app/schemas/incident_schema.py`) to the LLM. The LLM processes the input and returns a structured classification based on the schema defined in `app/schemas/classification_schema.py`. Note that the project employs a few-shot prompting technique (see `app/schemas/examples/classification_schema.py`) to guide the LLM in generating accurate responses.
 
-### Classification Schema Details (incident_schema.py)
+### Classification Schema Details (`incident_schema.py`)
 When submitting an incident report, include the following fields:
 
 ```python
@@ -68,10 +68,12 @@ You may change this schema to something that suits yourself.
 ## Get started
 
 **1. Configure Environment Variables:**
+
 Rename the .env.example file to .env and fill in the required values.
 
 
 **2. Build application with Docker:**
+
 You can build and run the application using Docker with the command below:
 ```bash
 docker-compose --env-file .env up -d --build
@@ -84,4 +86,5 @@ poetry run python3 server.py
 ```
 
 **3. Access the API Documentation:**
+
 Once the API is up and running, open your browser and navigate to http://localhost:8000/docs to explore the documentation and test the API.

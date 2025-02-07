@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+    api:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: incidentreport
+        env_file:
+            - .env
+        volumes:
+            - ./:/usr/src/app/
+            - ./logs:/usr/src/app/logs
+        ports:
+            - 8000:8000

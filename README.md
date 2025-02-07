@@ -7,27 +7,29 @@ In this demo, the main workflow involves sending an incident report (formatted a
 ### Classification Schema Details (incident_schema.py)
 When submitting an incident report, include the following fields:
 
-1. **Language:** Language of the report (English or Norwegian).
-2. **Urgency:** How urgent the incident is (Minimal, Low, Moderate, or High).
-3. **Breach Type:** Identification on what was affected by the incident:
-   - Confidentiality (e.g., unauthorized access to data)
-   - Integrity (e.g., data tampering)
-   - Availability (e.g., system downtime)
-
-4. **Category:** Classification of the incident into one of these groups:
-   - Organisational (e.g., policy issues)
-   - People (e.g., human error)
-   - Physical (e.g., damage to equipment)
-   - Technology (e.g., software bugs)
-
-5. **Asset Type:** Specification on what kind of asset was involved:
-   - Information (e.g., data)
-   - Intangible assets (e.g., brand reputation)
-   - People (e.g., staff)
-   - Hardware (e.g., computers)
-   - Software (e.g., applications)
-   - Services (e.g., internet access)
-   - Offices (e.g., office premises)
+```python
+class IncidentClassification(BaseModel):
+    language: str = Field(
+        ...,
+        enum=["english", "norwegian"]
+    )
+    urgency: str = Field(
+        ...,
+        enum=["minimal", "low", "moderate", "high"]
+    )
+    breach: str = Field(
+        ...,
+        enum=["confidentiality", "integrity", "availability"]
+    )
+    category: str = Field(
+        ...,
+        enum=["Organisational", "People", "Physical", "Technology"]
+    )
+    asset: str = Field(
+        ...,
+        enum=["Information", "Intangible assets", "People", "Hardware", "Software", "Services", "Offices"]
+    )
+```
 
 You may change this schema to something that suits yourself.
 
